@@ -1,0 +1,53 @@
+{
+    "schemaVersion": "1.0.0",
+    "class": "Device",
+    "async": true,
+    "Common": {
+        "class": "Tenant",
+        "System": {
+            "class": "System",
+            "hostname": "bigip1.its.corp",
+            "autoCheck": true,
+            "autoPhonehome": true
+        },
+        "Provision": {
+            "class": "Provision",
+            "asm": "nominal",
+            "ltm": "nominal"
+        },
+        "NTP": {
+            "class": "NTP",
+            "timezone": "America/Mexico_City"
+        },
+        "DNS": {
+            "class": "DNS",
+            "nameServers": [
+                "169.254.169.254"
+            ]
+        },
+        "internal": {
+            "class": "VLAN",
+            "mtu": 9000,
+            "tag": 4094,
+            "interfaces": [
+                {
+                    "name": "1.0",
+                    "tagged": false
+                }
+            ]
+        },
+        "/Common/remotesyslog1": {
+            "host": "10.20.30.40",
+            "class": "SyslogRemoteServer"
+        },
+        "/Common/comm-public": {
+            "source": "default",
+            "class": "SnmpCommunity",
+            "name": "public"
+        },
+        "HTTPD": {
+            "class": "HTTPD",
+            "authPamIdleTimeout": 7200
+        }
+    }
+}
